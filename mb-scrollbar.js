@@ -181,7 +181,7 @@ angular.module('mb-scrollbar', [])
             if (typeof MutationObserver === 'function' ) {
                 var observer = new MutationObserver(function (mutations) {
                     // delay recalculation, prevent recalculation before animation ends
-                    setTimeout(function () { recalculate(); }, 200);
+                    setTimeout(function () { recalculate(); observer.takeRecords();}, 200);
                 });
                 observer.observe(element[0], {
                     childList: true,
